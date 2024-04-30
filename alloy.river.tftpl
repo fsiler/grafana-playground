@@ -1,0 +1,18 @@
+prometheus.exporter.windows "default" { }
+
+// Configure a prometheus.scrape component to collect windows metrics.
+prometheus.scrape "example" {
+  targets    = prometheus.exporter.windows.default.targets
+  forward_to = [prometheus.remote_write.grafanacloud.receiver]
+}
+
+prometheus.remote_write "grafanacloud" {
+  endpoint {
+    url = "https://prometheus-prod-13-prod-us-east-0.grafana.net/api/prom/push"
+
+    basic_auth {
+      username = "1551901"
+      password = "${grafana_key}"
+    }
+  }
+}

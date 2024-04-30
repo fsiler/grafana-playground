@@ -1,0 +1,17 @@
+version: 1.0
+tasks:
+- task: writeFile
+  inputs:
+  - frequency: once
+    destination: C:/grafana-alloy/alloy.river
+    content: |-
+      ${ indent(6, alloyriver) }
+
+- task: executeScript
+  inputs:
+  - frequency: once
+    type: powershell
+    runAs: localSystem
+    content: |-
+      ${ indent(6, installps1) }
+
