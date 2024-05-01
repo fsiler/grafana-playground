@@ -2,5 +2,8 @@ dependencies:
 - name: minio
   repository: https://charts.bitnami.com/bitnami
   version: 14.3.3
-digest: sha256:0d755fb0c6164ce4d2d42d612eba1665d31b96c040423d9ed97ddfe2509e4e89
-generated: "2024-05-01T08:56:50.062709-05:00"
+- name: thanos
+  repository: https://charts.bitnami.com/bitnami
+  version: 15.4.1
+digest: sha256:9c489ec7ebcdd8e6546710ec4b6538dc2fd9742085942de343497e7a40ab1220
+generated: "2024-05-01T09:19:19.1402696-05:00"

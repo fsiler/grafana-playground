@@ -26,3 +26,6 @@ dependencies:
 - name: minio
   version: "14.3.3"
   repository: https://charts.bitnami.com/bitnami
+- name: thanos
+  version: "15.4.1"
+  repository: https://charts.bitnami.com/bitnami
