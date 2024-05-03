@@ -1,0 +1,16 @@
+prometheus.exporter.windows "default" {
+//  enabled_collectors = ["cpu","cs","logical_disk","net","os","service","system"]
+  enabled_collectors = ["cpu","cs","logical_disk","net","os","system","service","process"]
+}
+
+// Configure a prometheus.scrape component to collect windows metrics.
+prometheus.scrape "metrics" {
+  targets    = prometheus.exporter.windows.default.targets
+  forward_to = [prometheus.remote_write.grafanacloud.receiver]
+}
+
+prometheus.remote_write "grafanacloud" {
+  endpoint {
+    url = "http://localhost:19291/api/v1/receive"
+  }
+}

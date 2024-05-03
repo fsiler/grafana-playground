@@ -1,0 +1,13 @@
+prometheus:
+  thanos:
+    create: true
+
+  additionalScrapeConfigs:
+    enabled: true
+    type: internal
+    internal:
+      jobList:
+       - job_name: 'minio'
+         metrics_path: '/minio/v2/metrics/cluster'
+         static_configs:
+           - targets: ['thanos-minio.default.svc.cluster.local:9000']
