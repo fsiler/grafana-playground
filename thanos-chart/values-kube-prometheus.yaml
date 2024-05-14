@@ -7,7 +7,15 @@ prometheus:
     type: internal
     internal:
       jobList:
-       - job_name: 'minio'
+       - job_name: 'minio_cluster'
          metrics_path: '/minio/v2/metrics/cluster'
+         static_configs:
+           - targets: ['thanos-minio.default.svc.cluster.local:9000']
+       - job_name: 'minio_bucket'
+         metrics_path: '/minio/v2/metrics/bucket'
+         static_configs:
+           - targets: ['thanos-minio.default.svc.cluster.local:9000']
+       - job_name: 'minio_resource'
+         metrics_path: '/minio/v2/metrics/resource'
          static_configs:
            - targets: ['thanos-minio.default.svc.cluster.local:9000']
